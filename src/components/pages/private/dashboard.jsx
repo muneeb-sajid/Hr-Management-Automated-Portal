@@ -22,6 +22,7 @@ import {
   getCoreRowModel,
   flexRender,
 } from '@tanstack/react-table';
+import { useNavigate } from 'react-router-dom';
 
 // KPI Data matching the mockup
 const kpiCards = [
@@ -117,6 +118,8 @@ const recentActivities = [
 ];
 
 const Dashboard = () => {
+
+  const navigate = useNavigate();
   // Define columns for TanStack React Table
   const columns = useMemo(
     () => [
@@ -203,7 +206,7 @@ const Dashboard = () => {
             <Download className="w-4 h-4 text-slate-500 dark:text-gray-400" />
             <span>Export CSV</span>
           </button>
-          <button className="flex items-center space-x-2 px-4 py-2 bg-indigo-600 dark:bg-indigo-500 rounded-lg text-sm font-medium text-white hover:bg-indigo-700 dark:hover:bg-indigo-600 transition-colors shadow-sm">
+          <button  className="flex items-center space-x-2 px-4 py-2 bg-indigo-600 dark:bg-indigo-500 rounded-lg text-sm font-medium text-white hover:bg-indigo-700 dark:hover:bg-indigo-600 transition-colors shadow-sm" onClick={() => navigate("/addemployee")}>
             <Plus className="w-4 h-4" />
             <span>Add Employee</span>
           </button>
