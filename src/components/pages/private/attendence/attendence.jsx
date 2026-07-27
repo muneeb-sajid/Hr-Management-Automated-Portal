@@ -10,6 +10,7 @@ import {
   Plus,
   Search
 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 // --- Table Setup ---
 const columns = [
@@ -80,6 +81,8 @@ const calendarDays = [
 ];
 
 const Attendance = () => {
+
+  const navigate =  useNavigate();
   const [viewMode, setViewMode] = useState('calendar'); // 'calendar' or 'table'
   const [filterText, setFilterText] = useState('');
 
@@ -187,7 +190,7 @@ const Attendance = () => {
             <p className="text-2xl font-extrabold text-slate-900 dark:text-white mt-1">94%</p>
           </div>
           <span className="flex items-center space-x-0.5 text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 px-2 py-0.5 rounded-md mt-1">
-            <TrendingUp className="w-3 h-3" />
+            <TrendingUp  className="w-3 h-3" />
             <span>2.4%</span>
           </span>
         </div>
@@ -341,8 +344,8 @@ const Attendance = () => {
       )}
 
       {/* Floating Action Button */}
-      <button className="fixed bottom-6 right-6 w-12 h-12 bg-indigo-600 dark:bg-indigo-500 hover:bg-indigo-700 dark:hover:bg-indigo-600 text-white rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-105 active:scale-95">
-        <Plus className="w-6 h-6" />
+      <button onClick={() => navigate("/overrideattence")} className="fixed bottom-6 right-6 w-12 h-12 bg-indigo-600 dark:bg-indigo-500 hover:bg-indigo-700 dark:hover:bg-indigo-600 text-white rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-105 active:scale-95">
+        <Plus  className="w-6 h-6" />
       </button>
 
     </div>
