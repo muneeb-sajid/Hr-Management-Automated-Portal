@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Search, Bell, HelpCircle, X } from 'lucide-react';
 import { ThemeToggle } from '../themetoggle';
 
 const Navbar = () => {
   const location = useLocation();
   const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
-
+  const navigate = useNavigate();
   // Route title mapping
   const getPageTitle = (pathname) => {
     if (pathname.startsWith('/employees/add')) return 'Add New Employee';
@@ -87,6 +87,7 @@ const Navbar = () => {
         <button 
           aria-label="Notifications"
           className="p-1.5 text-slate-700 dark:text-gray-200 hover:text-indigo-600 dark:hover:text-indigo-400 focus:outline-none transition-colors"
+          onClick={() => {navigate("/settings")}}
         >
           <Bell className="w-5 h-5 stroke-[1.75]" />
         </button>
